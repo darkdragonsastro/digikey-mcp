@@ -1,0 +1,63 @@
+{
+  "name": "@darkdragonsastro/digikey-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for the DigiKey ProductInformation V4 and Reference APIs",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "digikey-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "prepare": "husky",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "digikey",
+    "electronics",
+    "components"
+  ],
+  "author": "Dark Dragons Astro",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darkdragonsastro/digikey-mcp.git"
+  },
+  "homepage": "https://github.com/darkdragonsastro/digikey-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/darkdragonsastro/digikey-mcp/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.0",
+    "eslint": "^10.11.0",
+    "husky": "^9.1.7",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.70.1",
+    "vitest": "^5.0.2"
+  }
+}
