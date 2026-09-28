@@ -40,6 +40,10 @@ Claude Desktop (`claude_desktop_config.json`):
 }
 ```
 
+The package is published to both npmjs.org and GitHub Packages. If your
+`.npmrc` maps the `@darkdragonsastro` scope to GitHub Packages, `npx` installs
+it from there.
+
 The server uses the OAuth client credentials flow. It gets a new access token
 when the current one is about to expire.
 
@@ -93,3 +97,16 @@ To run against the live API, put your credentials in `.env` (ignored by git):
 export DIGIKEY_CLIENT_ID=...
 export DIGIKEY_CLIENT_SECRET=...
 ```
+
+## Releasing
+
+Releases are made by [release-please](https://github.com/googleapis/release-please).
+PRs are squash-merged, so each PR title must be a
+[conventional commit](https://www.conventionalcommits.org/) (`feat: ...`,
+`fix: ...`). A check on each PR enforces this.
+
+1. After each merge to `main`, release-please opens or updates a release PR
+   that bumps the version in `package.json` and updates `CHANGELOG.md`.
+   `fix:` bumps the patch version and `feat:` bumps the minor version.
+2. Merging the release PR creates the tag and GitHub release, then publishes
+   to npmjs.org (with trusted publishing, no token) and to GitHub Packages.
